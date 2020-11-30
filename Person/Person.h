@@ -10,10 +10,10 @@ class Person
 {
 
 protected:
-  string ten;
-  int tuoi;
-  string dia_chi;
-  bool gioi_tinh; // true: name, false: nu
+  string name;
+  int age;
+  string address;
+  bool gender; // true: name, false: nu
 
 public:
   Person();
@@ -22,17 +22,17 @@ public:
   virtual ~Person();
 
   // getter, setter
-  virtual string getTen() const;
-  virtual void setTen(const string &);
+  virtual string getName() const;
+  virtual void setName(const string &);
 
-  virtual int getTuoi() const;
-  virtual void setTuoi(const int &);
+  virtual int getAge() const;
+  virtual void setAge(const int &);
 
-  virtual string getDiaChi() const;
-  virtual void setDiaChi(const string &);
+  virtual string getAddress() const;
+  virtual void setAddress(const string &);
 
-  virtual bool getGioiTinh() const;
-  virtual void setGioiTinh(const bool &);
+  virtual bool getGender() const;
+  virtual void setGender(const bool &);
 
   virtual void show();
   virtual string removeSpaceAndValidateString(string str);

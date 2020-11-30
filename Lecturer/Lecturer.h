@@ -7,8 +7,8 @@ class Lecturer : public Person
 {
 
 private:
-  string ma_lecture;
-  string cap_bac;
+  string lecturerCode;
+  string level;
 
 public:
   Lecturer();
@@ -17,19 +17,19 @@ public:
   ~Lecturer();
 
   // setter, getter
-  // override setTen()
-  void setTen(const string &);
+  // override setName()
+  void setName(const string &);
 
-  string getMaLecture() const;
+  string getLecturerCode() const;
 
-  string getCapBac() const;
-  void setCapBac(const string &);
+  string getLevel() const;
+  void setLevel(const string &);
 
   void show();
 
 private:
   void setMaLecture();
-  string createIdLecturerFromName(string str);
+  string createLecturerCodeFromName(string str);
 };
 
 #endif

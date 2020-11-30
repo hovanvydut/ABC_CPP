@@ -4,79 +4,79 @@ Person::Person()
 {
 }
 
-Person::Person(string ten, int tuoi, string dia_chi, bool gioi_tinh)
+Person::Person(string name, int age, string address, bool gender)
 {
-  this->setTen(ten);
-  this->setTuoi(tuoi);
-  this->setDiaChi(dia_chi);
-  this->setGioiTinh(gioi_tinh);
+  this->setName(name);
+  this->setAge(age);
+  this->setAddress(address);
+  this->setGender(gender);
 }
 
 Person::Person(const Person &person)
 {
-  this->setTen(person.ten);
-  this->setTuoi(person.tuoi);
-  this->setDiaChi(person.dia_chi);
-  this->setGioiTinh(person.gioi_tinh);
+  this->setName(person.name);
+  this->setAge(person.age);
+  this->setAddress(person.address);
+  this->setGender(person.gender);
 }
 
 Person::~Person()
 {
 }
 
-string Person::getTen() const
+string Person::getName() const
 {
-  return this->ten;
+  return this->name;
 }
 
-void Person::setTen(const string &ten)
+void Person::setName(const string &name)
 {
   // validate tên, chỉ chưa các kí tự chữ, loại bỏ space đầu, cuối, và 2 space liên tiếp ở giữa
-  this->ten = this->removeSpaceAndValidateString(ten);
+  this->name = this->removeSpaceAndValidateString(name);
 }
 
-int Person::getTuoi() const
+int Person::getAge() const
 {
-  return this->tuoi;
+  return this->age;
 }
 
-void Person::setTuoi(const int &tuoi)
+void Person::setAge(const int &age)
 {
-  if (tuoi < 0 && tuoi < 200)
+  if (age < 0 && age < 200)
   {
-    throw "Error: tuoi phai lon hon 0";
+    throw "Error: age phai lon hon 0";
   }
 
-  this->tuoi = tuoi;
+  this->age = age;
 }
 
-string Person::getDiaChi() const
+string Person::getAddress() const
 {
-  return this->dia_chi;
+  return this->address;
 }
 
-void Person::setDiaChi(const string &dia_chi)
+void Person::setAddress(const string &address)
 {
-  this->dia_chi = dia_chi;
+  this->address = address;
 }
 
-bool Person::getGioiTinh() const
+bool Person::getGender() const
 {
-  return this->gioi_tinh;
+  return this->gender;
 }
 
-void Person::setGioiTinh(const bool &gioi_tinh)
+void Person::setGender(const bool &gender)
 {
-  this->gioi_tinh = gioi_tinh;
+  this->gender = gender;
 }
 
 void Person::show()
 {
   std::cout << "Person: \n";
-  std::cout << "	ten: " << this->getTen() << "\n";
-  std::cout << "	tuoi: " << this->getTuoi() << "\n";
-  std::cout << "	dia chi: " << this->getDiaChi() << "\n";
-  std::cout << "	gioi tinh: " << this->getGioiTinh() << "\n";
+  std::cout << "	name: " << this->getName() << "\n";
+  std::cout << "	age: " << this->getAge() << "\n";
+  std::cout << "	address: " << this->getAddress() << "\n";
+  std::cout << "	gender: " << this->getGender() << "\n";
 }
 
 string Person::removeSpaceAndValidateString(string str)

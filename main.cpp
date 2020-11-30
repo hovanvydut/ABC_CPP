@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Person/Person.h"
 #include "Lecturer/Lecturer.h"
-#include "SinhVien/SinhVien.h"
+#include "Student/Student.h"
 using namespace std;
 
 int main()
@@ -13,8 +13,12 @@ int main()
   Lecturer lecturer("Culi Vy", 19, "Quang Nom", true, "cleaner");
   lecturer.show();
 
-  SinhVien sinhvien("Em la SV", 20, "Quang Ngai", false, "0987654321", 1.8);
+  try {
+    Student sinhvien("Em la SV", 20, "Quang Ngai", false, "9087654321", 1.8);
   sinhvien.show();
+  } catch (const char* msg) {
+    cout << msg << endl;
+  }
 
   return 0;
 }

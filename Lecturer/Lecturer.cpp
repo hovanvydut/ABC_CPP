@@ -4,12 +4,12 @@ Lecturer::Lecturer() : Person()
 {
 }
 
-Lecturer::Lecturer(string ten, int tuoi, string dia_chi, bool gioi_tinh, string cap_bac)
-    : Person(ten, tuoi, dia_chi, gioi_tinh)
+Lecturer::Lecturer(string name, int age, string address, bool gender, string level)
+    : Person(name, age, address, gender)
 {
-  this->cap_bac = cap_bac;
+  this->level = level;
   // override method
-  this->setTen(ten);
+  this->setName(name);
 }
 
 Lecturer::Lecturer(const Lecturer &lecture)
@@ -23,42 +23,42 @@ Lecturer::~Lecturer()
 // setter, getter
 
 // override
-void Lecturer::setTen(const string &ten)
+void Lecturer::setName(const string &name)
 {
-  this->ten = ten;
+  this->name = name;
   this->setMaLecture();
 }
 
-string Lecturer::getMaLecture() const
+string Lecturer::getLecturerCode() const
 {
-  return this->ma_lecture;
+  return this->lecturerCode;
 }
 
-string Lecturer::getCapBac() const
+string Lecturer::getLevel() const
 {
-  return this->cap_bac;
+  return this->level;
 }
 
-void Lecturer::setCapBac(const string &cap_bac)
+void Lecturer::setLevel(const string &level)
 {
-  this->cap_bac = cap_bac;
+  this->level = level;
 }
 
 void Lecturer::setMaLecture()
 {
   // Le Thi My Hanh ==> 102ltmhanh
   // Dang Hoai Phuong ==> 102dhphuong
-  this->ma_lecture = this->createIdLecturerFromName(this->getTen());
+  this->lecturerCode = this->createLecturerCodeFromName(this->getName());
 }
 
 void Lecturer::show()
 {
   Person::show();
-  std::cout << "	ma lecturer: " << this->getMaLecture() << "\n";
-  std::cout << "	cap bac: " << this->getCapBac() << "\n";
+  std::cout << "	ma lecturer: " << this->getLecturerCode() << "\n";
+  std::cout << "	cap bac: " << this->getLevel() << "\n";
 }
 
-string Lecturer::createIdLecturerFromName(string str)
+string Lecturer::createLecturerCodeFromName(string str)
 {
   string arr[100];
   int idx = 0;
