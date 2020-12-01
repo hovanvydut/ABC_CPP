@@ -6,6 +6,7 @@
 // #include "../Student/Student.h"
 
 class Student;
+
 class SectionClass {
 
 private:

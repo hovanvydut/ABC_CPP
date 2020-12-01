@@ -10,20 +10,6 @@ using namespace std;
 
 int main()
 {
-
-  // Person person("Ho Van      Vy", 19, "TT.Hue", true);
-  // person.show();
-
-  // Lecturer lecturer("Culi Vy", 19, "Qzuang Nom", true, "cleaner");
-  // lecturer.show();
-
-  // try {
-  //   Student sinhvien("Em la SV", 20, "Quang Ngai", false, "0987654321", 1.8);
-  //   sinhvien.show();
-  // } catch (const char* msg) {
-  //   cout << msg << endl;
-  // }
-
   Student *student1 = new Student("Ho Van      Vy", 19, "TT.Hue", true, "1234567890", 2.3);
   Student *student2 = new Student(" Nguyen Huy   Tuong", 30, "Quang Nom", true, "5432167890", 4.0);
   Student *student3 = new Student("Nguyen  Duy Thinh", 22, "TT.Hue", false,"7654321890", 3.0);
@@ -33,6 +19,7 @@ int main()
   Lecturer lecturerOOP("Dang Hoai Phuong", 40, "Unknown", false, "Expert");
 
   SectionClass toangCLC("19TCLC_DT4", &lecturerOOP);
+  
   toangCLC.getLecturer() -> show();
   cout << "List of students 19TCLC_DT4" << endl;
   toangCLC.addStudent(student1);
