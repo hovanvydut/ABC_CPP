@@ -34,8 +34,11 @@ public:
   virtual bool getGender() const;
   virtual void setGender(const bool &);
 
-  virtual void show();
+  virtual void show() const;
   virtual string removeSpaceAndValidateString(string str);
+
+  friend ostream& operator << (ostream& o, const Person& person);
+  friend ostream& operator << (ostream& o, const Person* person);
 };
 
 #endif

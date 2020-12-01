@@ -31,13 +31,16 @@ public:
   // NOTE: add const at the end method
 
   // override method
-  void show();
+  void show() const;
 
   // không dùng hàm bạn được (do circular dependency, fix bằng forward declaration) nên dùng lớp bạn 
   friend class SectionClass;
 private:   
   // quan hệ 1-n với SectionClass
   void setSectionClass(SectionClass*);
+
+  friend ostream& operator << (ostream& o, const Student& student);
+  friend ostream& operator << (ostream& o, const Student* student);
 };
 
 #endif

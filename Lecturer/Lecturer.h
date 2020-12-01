@@ -25,7 +25,10 @@ public:
   string getLevel() const;
   void setLevel(const string &);
 
-  void show();
+  void show() const;
+
+  friend ostream& operator << (ostream& o, const Lecturer& lecturer);
+  friend ostream& operator << (ostream& o, const Lecturer* lecturer);
 
 private:
   void setMaLecture();

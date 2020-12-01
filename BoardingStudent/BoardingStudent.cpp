@@ -22,7 +22,7 @@ BoardingStudent::~BoardingStudent()
 
 }
 
-string BoardingStudent::getRoomCode()
+string BoardingStudent::getRoomCode() const
 {
   return this->roomCode;
 }
@@ -32,8 +32,20 @@ void BoardingStudent::setRoomCode(const string& roomCode)
   this->roomCode = roomCode;
 }
 
-void BoardingStudent::show()
+void BoardingStudent::show() const
 {
   Student::show();
   std::cout << "	roomCode: " << this->getRoomCode() << "\n";
+}
+
+ostream& operator << (ostream& o, const BoardingStudent& student)
+{
+  student.show();
+  return o;
+}
+
+ostream& operator << (ostream& o, const BoardingStudent* student)
+{
+  student->show();
+  return o;
 }

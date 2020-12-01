@@ -19,6 +19,9 @@ public:
   // getter, setter
   string getParkingCode();
   void setParkingCode(string&);
+
+  friend ostream& operator << (ostream& o, const NormalStudent& student);
+  friend ostream& operator << (ostream& o, const NormalStudent* student);
 };
 
 #endif

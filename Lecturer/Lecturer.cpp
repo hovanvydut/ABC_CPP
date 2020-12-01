@@ -51,7 +51,7 @@ void Lecturer::setMaLecture()
   this->lecturerCode = this->createLecturerCodeFromName(this->getName());
 }
 
-void Lecturer::show()
+void Lecturer::show() const
 {
   Person::show();
   std::cout << "	ma lecturer: " << this->getLecturerCode() << "\n";
@@ -93,4 +93,16 @@ string Lecturer::createLecturerCodeFromName(string str)
   }
 
   return result;
+}
+
+ostream& operator << (ostream& o, const Lecturer& lecturer)
+{
+  lecturer.show();
+  return o;
+}
+
+ostream& operator << (ostream& o, const Lecturer* lecturer)
+{
+  lecturer->show();
+  return o;
 }

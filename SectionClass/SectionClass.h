@@ -3,6 +3,7 @@
 
 #include <string>
 #include "../Lecturer/Lecturer.h"
+#include "../ListtPackage/ArrayListt/ArrayListt.h"
 // #include "../Student/Student.h"
 
 class Student;
@@ -11,14 +12,15 @@ class SectionClass {
 
 private:
   string name;
-  Student** listStudents;
+  Listt<Student*> *listStudents;
   Lecturer* lecturer;
-  int numberOfStudents;
+  // Vì có thuộc tính size của Listt rồi nên không cần thuộc tính numberOfStudents
+  // int numberOfStudents;
 
 public:
   SectionClass();
   SectionClass(const string&, Lecturer*);
-  SectionClass(SectionClass&);
+  // SectionClass(SectionClass&);
   ~SectionClass();
 
   // setter, getter
@@ -40,8 +42,6 @@ public:
 
   Person* operator [] (int);
 
-private:  
-  void setNumberOfStudents(const int &);
 };
 
 #endif

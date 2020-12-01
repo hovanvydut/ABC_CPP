@@ -32,3 +32,15 @@ void NormalStudent::setParkingCode(string& parkingCode)
 { 
   this->parkingCode = parkingCode;
 }
+
+ostream& operator << (ostream& o, const NormalStudent& student)
+{
+  student.show();
+  return o;
+}
+
+ostream& operator << (ostream& o, const NormalStudent* student)
+{
+  student->show();
+  return o;
+}

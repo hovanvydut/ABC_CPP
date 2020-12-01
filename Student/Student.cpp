@@ -66,7 +66,7 @@ void Student::setGPA(const double &GPA)
   this->GPA = GPA;
 }
 
-void Student::show()
+void Student::show() const
 {
   Person::show();
   std::cout << "	studentId: " << this->getStudentId() << "\n";
@@ -81,4 +81,16 @@ SectionClass Student::getSectionClass() const
 void Student::setSectionClass(SectionClass* sectionClass)
 {
   this->sectionClass = sectionClass;
+}
+
+ostream& operator << (ostream& o, const Student& student)
+{
+  student.show();
+  return o;
+}
+
+ostream& operator << (ostream& o, const Student* student)
+{
+  student->show();
+  return o;
 }

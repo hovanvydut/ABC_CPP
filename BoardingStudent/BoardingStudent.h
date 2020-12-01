@@ -18,11 +18,14 @@ public:
   ~BoardingStudent();
 
   // setter, getter
-  string getRoomCode();
+  string getRoomCode() const;
   void setRoomCode(const string&);
 
   // override method
-  void show();
+  void show() const;
+
+  friend ostream& operator << (ostream& o, const BoardingStudent& student);
+  friend ostream& operator << (ostream& o, const BoardingStudent* student);
 };
 
 #endif

@@ -70,7 +70,7 @@ void Person::setGender(const bool &gender)
   this->gender = gender;
 }
 
-void Person::show()
+void Person::show() const
 {
   std::cout << "Person: \n";
   std::cout << "	name: " << this->getName() << "\n";
@@ -113,4 +113,16 @@ string Person::removeSpaceAndValidateString(string str)
     return s;
   }
   return result;
+}
+
+// 
+ostream& operator << (ostream& o, const Person& person)
+{
+  person.show();
+  return o;
+}
+ostream& operator << (ostream& o, const Person* person)
+{
+  person->show();
+  return o;
 }
