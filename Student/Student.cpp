@@ -1,20 +1,30 @@
 #include "Student.h"
+#include "../SectionClass/SectionClass.h"
 
 Student::Student()
 {
+
 }
 
 Student::Student(string name, int age, string address, bool gender, string studentId, double GPA) : Person(name, age, address, gender)
 {
   this->setStudentId(studentId);
   this->setGPA(GPA);
+  this->setSectionClass(sectionClass);
+}
+
+Student::Student(string name, int age, string address, bool gender, string studentId, double GPA, SectionClass* sectionClass) : Person(name, age, address, gender)
+{
+  this->setStudentId(studentId);
+  this->setGPA(GPA);
+  this->setSectionClass(sectionClass);
 }
 
 Student::~Student()
 {
 }
 
-string Student::getStudentId()
+string Student::getStudentId() const
 {
   return this->studentId;
 }
@@ -41,7 +51,7 @@ void Student::setStudentId(const string &studentId)
   this->studentId = studentId;
 }
 
-double Student::getGPA()
+double Student::getGPA() const
 {
   return this->GPA;
 }
@@ -61,4 +71,14 @@ void Student::show()
   Person::show();
   std::cout << "	studentId: " << this->getStudentId() << "\n";
   std::cout << "	GPA: " << this->getGPA() << "\n";
+}
+
+SectionClass Student::getSectionClass() const
+{
+  return *(this->sectionClass);
+}
+
+void Student::setSectionClass(SectionClass* sectionClass)
+{
+  this->sectionClass = sectionClass;
 }

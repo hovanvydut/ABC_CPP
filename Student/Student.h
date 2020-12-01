@@ -1,27 +1,35 @@
-#ifndef SINHVIEN_H
-#define SINHVIEN_H
+#ifndef STUDENT_H
+#define STUDENT_H
 
 #include <iostream>
 #include "../Person/Person.h"
+// #include "../SectionClass/SectionClass.h"
 
+class SectionClass;
 class Student : public Person
 {
 
 private:
   string studentId;
   double GPA;
+  SectionClass* sectionClass;
 
 public:
   Student();
   Student(string, int, string, bool, string, double);
+  Student(string, int, string, bool, string, double, SectionClass*);
   ~Student();
 
-  string getStudentId();
+  string getStudentId() const;
   void setStudentId(const string &);
 
-  double getGPA();
+  double getGPA() const;
   void setGPA(const double &);
 
+  SectionClass getSectionClass() const;
+  void setSectionClass(SectionClass*);
+
+  // NOTE: add const at the end method
   void show();
 };
 
