@@ -2,7 +2,7 @@
 
 CXX=g++
 SOURCE = main.cpp Lecturer/Lecturer.cpp SectionClass/SectionClass.cpp Person/Person.cpp Student/Student.cpp \
-BoardingStudent/BoardingStudent.h
+BoardingStudent/BoardingStudent.cpp NormalStudent/NormalStudent.cpp
 
 
 build: $(SOURCE)

@@ -20,6 +20,9 @@ public:
   // setter, getter
   string getRoomCode();
   void setRoomCode(const string&);
+
+  // override method
+  void show();
 };
 
 #endif

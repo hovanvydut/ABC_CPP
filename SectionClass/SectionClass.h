@@ -11,25 +11,34 @@ class SectionClass {
 private:
   string name;
   Student** listStudents;
-  Lecturer lecturer;
+  Lecturer* lecturer;
   int numberOfStudents;
 
 public:
   SectionClass();
-  SectionClass(const string&, const Lecturer&);
+  SectionClass(const string&, Lecturer*);
   SectionClass(SectionClass&);
   ~SectionClass();
 
   // setter, getter
   string getName();
   void setName(const string&);
-  Lecturer getLecturer();
-  void setLecturer(const Lecturer&);
+
+  Lecturer* getLecturer();
+  void setLecturer(Lecturer*);
+
   int getNumberOfStudents();
 
   // additional method
-  void addStudent(Student*);
+  bool addStudent(Student*);
+  // void removeStudent(Student*);
+  bool removeStudent(const string&);
+
+  // override methods
   void show();
+
+  Person* operator [] (int);
+
 private:  
   void setNumberOfStudents(const int &);
 };

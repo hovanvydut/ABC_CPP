@@ -1,1 +1,3 @@
 Adding copy constructor for all class
+Singleton
+add private setter quan he N-N giua SectionClass va Student

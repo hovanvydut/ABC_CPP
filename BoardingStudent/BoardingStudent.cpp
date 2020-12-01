@@ -1,6 +1,6 @@
 #include "BoardingStudent.h"
 
-BoardingStudent::BoardingStudent()
+BoardingStudent::BoardingStudent() : Student()
 {
 
 }
@@ -30,4 +30,10 @@ string BoardingStudent::getRoomCode()
 void BoardingStudent::setRoomCode(const string& roomCode)
 {
   this->roomCode = roomCode;
+}
+
+void BoardingStudent::show()
+{
+  Student::show();
+  std::cout << "	roomCode: " << this->getRoomCode() << "\n";
 }

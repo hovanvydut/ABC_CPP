@@ -9,7 +9,7 @@ class SectionClass;
 class Student : public Person
 {
 
-private:
+protected:
   string studentId;
   double GPA;
   SectionClass* sectionClass;
@@ -30,6 +30,8 @@ public:
   void setSectionClass(SectionClass*);
 
   // NOTE: add const at the end method
+
+  // override method
   void show();
 };
 
