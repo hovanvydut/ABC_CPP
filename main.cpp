@@ -39,7 +39,10 @@ int main()
     cout << "Removed" << endl;
   }
 
-  toangCLC->show();
+  cout << toangCLC << endl;
+
+  cout << "------------------\n";
+  cout << (*toangCLC)[0] << endl;
 
 /*   Listt<Student*> *arrayList = new ArrayListt<Student*>();
   arrayList->add(student1);

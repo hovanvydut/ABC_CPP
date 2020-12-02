@@ -29,13 +29,13 @@ public:
   ~SectionClass();
 
   // setter, getter
-  string getName();
+  string getName() const;
   void setName(const string&);
 
-  Lecturer* getLecturer();
+  Lecturer* getLecturer() const;
   void setLecturer(Lecturer*);
 
-  int getNumberOfStudents();
+  int getNumberOfStudents() const;
 
   // additional method
   bool addStudent(Student*);
@@ -43,10 +43,11 @@ public:
   bool removeStudent(const string&);
 
   // override methods
-  void show();
+  void show() const;
 
-  Person* operator [] (int);
-
+  Student* operator [] (int);
+  friend ostream& operator << (ostream&, const SectionClass&);
+  friend ostream& operator << (ostream&, const SectionClass*);
 };
 
 #endif

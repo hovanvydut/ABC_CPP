@@ -37,7 +37,7 @@ SectionClass* SectionClass::getInstance()
   return _instance;
 }
 
-string SectionClass::getName()
+string SectionClass::getName() const
 {
   return this->name;
 }
@@ -53,7 +53,7 @@ void SectionClass::setName(const string &name)
   this->name = name;
 }
 
-Lecturer *SectionClass::getLecturer()
+Lecturer *SectionClass::getLecturer() const
 {
   return this->lecturer;
 }
@@ -63,7 +63,7 @@ void SectionClass::setLecturer(Lecturer *lecturer)
   this->lecturer = lecturer;
 }
 
-int SectionClass::getNumberOfStudents()
+int SectionClass::getNumberOfStudents() const
 {
   return this->listStudents->getSize();
 }
@@ -86,10 +86,33 @@ bool SectionClass::removeStudent(const string &studentId)
   return false;
 }
 
-void SectionClass::show()
+void SectionClass::show() const
 {
   for (int i = 0; i < this->listStudents->getSize(); i++)
   {
     cout << this->listStudents->get(i) << endl;
   }
+}
+
+Student* SectionClass::operator [] (int index)
+{
+  return this->listStudents->get(index);
+}
+
+ostream& operator << (ostream& o, const SectionClass& sectionClass)
+{
+  cout << "Lop: " << sectionClass.getName() << endl;
+  cout << sectionClass.getLecturer() << endl;
+  cout << "Bao gom " << sectionClass.getNumberOfStudents() << " hoc sinh" << endl;
+  sectionClass.show();
+  return o;
+}
+
+ostream& operator << (ostream& o, const SectionClass* sectionClass)
+{
+  cout << "Lop: " << sectionClass->getName() << endl;
+  cout << sectionClass->getLecturer() << endl;
+  cout << "Bao gom " << sectionClass->getNumberOfStudents() << " hoc sinh" << endl;
+  sectionClass->show();
+  return o;
 }
