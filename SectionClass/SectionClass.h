@@ -4,6 +4,7 @@
 #include <string>
 #include "../Lecturer/Lecturer.h"
 #include "../ListtPackage/ArrayListt/ArrayListt.cpp"
+#include "../ListtPackage/LinkedListt/LinkedListt.h"
 // #include "../Student/Student.h"
 
 class Student;

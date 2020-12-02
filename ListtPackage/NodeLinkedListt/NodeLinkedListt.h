@@ -23,8 +23,8 @@ public:
     NodeLinkedListt *getPrevious();
     bool setNextNode(NodeLinkedListt *);
     bool setPreviousNode(NodeLinkedListt *);
-    const E &getData();
-    const E &setData(const E &);
+    const E getData();
+    const E setData(const E);
     //    template <class T> friend std::ostream &operator<<(std::ostream &, const NodeLinkedListt<T> &);
     //    template <class T> friend std::ostream &operator<<(std::ostream &, const NodeLinkedListt<T> *);
 };
@@ -84,13 +84,13 @@ bool NodeLinkedListt<E>::setPreviousNode(NodeLinkedListt *newNode)
 }
 
 template <class E>
-const E &NodeLinkedListt<E>::getData()
+const E NodeLinkedListt<E>::getData()
 {
     return this->data;
 }
 
 template <class E>
-const E &NodeLinkedListt<E>::setData(const E &data)
+const E NodeLinkedListt<E>::setData(const E data)
 {
     E &before = this->data;
     this->data = data;

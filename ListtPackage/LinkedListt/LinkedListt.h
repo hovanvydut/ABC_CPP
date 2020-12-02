@@ -28,7 +28,7 @@ public:
   virtual bool isEmpty();
   virtual void clear();
   virtual bool contains(const E);
-  virtual const E get(const int &);
+  virtual E get(const int &);
   virtual const E set(const int &, const E);
   virtual void show();
   virtual void sort(bool (*compare)(const E, const E));
@@ -304,7 +304,7 @@ const E LinkedListt<E>::set(const int &idx, const E elm)
 }
 
 template <class E>
-const E LinkedListt<E>::get(const int &idx)
+E LinkedListt<E>::get(const int &idx)
 {
   if (idx < 0 || idx >= this->getSize())
   {
