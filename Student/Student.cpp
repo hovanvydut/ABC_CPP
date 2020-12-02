@@ -1,9 +1,16 @@
 #include "Student.h"
 #include "../SectionClass/SectionClass.h"
 
-Student::Student()
+Student::Student() : Person()
 {
 
+}
+
+Student::Student(string studentId, double GPA, SectionClass* sectionClass)
+{
+  this->setGPA(GPA);
+  this->setSectionClass(sectionClass);
+  this->setStudentId(studentId);
 }
 
 Student::Student(string name, int age, string address, bool gender, string studentId, double GPA) : Person(name, age, address, gender)
@@ -93,4 +100,11 @@ ostream& operator << (ostream& o, const Student* student)
 {
   student->show();
   return o;
+}
+
+bool Student::operator == (const Student& student) const
+{
+  if (this->getStudentId() == student.getStudentId())
+    return true;
+  return false;
 }

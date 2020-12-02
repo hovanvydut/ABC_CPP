@@ -16,8 +16,7 @@ protected:
   bool gender; // true: name, false: nu
 
 public:
-  Person();
-  Person(string, int, string, bool);
+  Person(string = "No Name", int = 0, string = "Unknown", bool = true);
   Person(const Person &);
   virtual ~Person();
 

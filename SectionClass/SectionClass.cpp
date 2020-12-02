@@ -1,6 +1,8 @@
 #include "SectionClass.h"
 #include "../Student/Student.h"
 
+SectionClass* SectionClass::_instance = nullptr;
+
 SectionClass::SectionClass()
 {
   this->listStudents = new ArrayListt<Student*>();
@@ -23,6 +25,16 @@ SectionClass::SectionClass(const string &name, Lecturer *lecturer)
 
 SectionClass::~SectionClass()
 {
+}
+
+SectionClass* SectionClass::getInstance()
+{
+  if (_instance == nullptr)
+  {
+    _instance = new SectionClass();
+  }
+
+  return _instance;
 }
 
 string SectionClass::getName()
@@ -63,8 +75,15 @@ bool SectionClass::addStudent(Student *student)
 
 bool SectionClass::removeStudent(const string &studentId)
 {
-  // Student student = this->listStudents->get()
-  // this->listStudents->remove(studentId);
+  for (int i = 0; i < this->listStudents->getSize(); i++)
+  {
+    Student* student = this->listStudents->get(i);
+    if (student->getStudentId() == studentId)
+    {
+      return this->listStudents->remove(student);
+    }
+  }
+  return false;
 }
 
 void SectionClass::show()

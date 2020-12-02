@@ -1,9 +1,5 @@
 #include "Person.h"
 
-Person::Person()
-{
-}
-
 Person::Person(string name, int age, string address, bool gender)
 {
   this->setName(name);

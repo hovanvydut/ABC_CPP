@@ -17,9 +17,14 @@ private:
   // Vì có thuộc tính size của Listt rồi nên không cần thuộc tính numberOfStudents
   // int numberOfStudents;
 
-public:
+  static SectionClass* _instance;
   SectionClass();
   SectionClass(const string&, Lecturer*);
+
+public:
+  // Singleton Pattern
+  static SectionClass* getInstance();
+
   // SectionClass(SectionClass&);
   ~SectionClass();
 

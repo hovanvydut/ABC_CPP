@@ -16,6 +16,7 @@ protected:
 
 public:
   Student();
+  Student(string, double = 0, SectionClass* = nullptr);
   Student(string, int, string, bool, string, double);
   Student(string, int, string, bool, string, double, SectionClass*);
   ~Student();
@@ -35,12 +36,14 @@ public:
 
   // không dùng hàm bạn được (do circular dependency, fix bằng forward declaration) nên dùng lớp bạn 
   friend class SectionClass;
-private:   
-  // quan hệ 1-n với SectionClass
-  void setSectionClass(SectionClass*);
 
   friend ostream& operator << (ostream& o, const Student& student);
   friend ostream& operator << (ostream& o, const Student* student);
+  bool operator == (const Student&) const;
+  
+private:   
+  // quan hệ 1-n với SectionClass
+  void setSectionClass(SectionClass*);
 };
 
 #endif
