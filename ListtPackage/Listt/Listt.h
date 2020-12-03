@@ -36,5 +36,4 @@ Listt<E>::~Listt()
 
 }
 
-
 #endif // LISTT_H

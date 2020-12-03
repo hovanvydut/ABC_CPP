@@ -108,3 +108,24 @@ bool Student::operator == (const Student& student) const
     return true;
   return false;
 }
+
+bool Student::operator > (const Student& anotherStudent) const
+{
+  return this->getGPA() > anotherStudent.getGPA();
+}
+
+bool Student::operator >= (const Student& anotherStudent) const
+{
+  return this->getGPA() >= anotherStudent.getGPA();
+}
+
+bool Student::operator < (const Student& anotherStudent) const
+{
+  return this->getGPA() < anotherStudent.getGPA();
+}
+
+bool Student::operator <= (const Student& anotherStudent) const
+{
+  return this->getGPA() <= anotherStudent.getGPA();
+}
+

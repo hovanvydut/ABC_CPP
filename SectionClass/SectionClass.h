@@ -3,7 +3,7 @@
 
 #include <string>
 #include "../Lecturer/Lecturer.h"
-#include "../ListtPackage/ArrayListt/ArrayListt.h"
+#include "../ListtPackage/ArrayListt/ArrayListt.cpp"
 // #include "../Student/Student.h"
 
 class Student;
@@ -24,30 +24,29 @@ private:
 public:
   // Singleton Pattern
   static SectionClass* getInstance();
-
-  // SectionClass(SectionClass&);
   ~SectionClass();
+  // SectionClass(SectionClass&);
 
   // setter, getter
   string getName() const;
   void setName(const string&);
-
   Lecturer* getLecturer() const;
   void setLecturer(Lecturer*);
-
   int getNumberOfStudents() const;
 
-  // additional method
+  // management method
   bool addStudent(Student*);
-  // void removeStudent(Student*);
   bool removeStudent(const string&);
-
-  // override methods
-  void show() const;
-
+  Student* findStudentById(const string&);
+  void sortGPAStudentDESC();
+  void sortGPAStudentASC();
   Student* operator [] (int);
   friend ostream& operator << (ostream&, const SectionClass&);
   friend ostream& operator << (ostream&, const SectionClass*);
+  // void removeStudent(Student*);
+
+  // override method
+  void show() const;
 };
 
 #endif

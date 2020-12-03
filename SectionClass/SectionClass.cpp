@@ -86,6 +86,30 @@ bool SectionClass::removeStudent(const string &studentId)
   return false;
 }
 
+Student* SectionClass::findStudentById(const string& studentId)
+{
+  for (int i = 0; i < this->listStudents->getSize(); i++)
+  {
+    Student* student = this->listStudents->get(i);
+    if (student->getStudentId() == studentId)
+    {
+      return student;
+    }
+  }
+
+  return nullptr;
+}
+
+void SectionClass::sortGPAStudentDESC()
+{
+  this->listStudents->sort(ArrayListt<Student*>::compareDESC);
+}
+
+void SectionClass::sortGPAStudentASC()
+{
+  this->listStudents->sort(ArrayListt<Student*>::compareASC);
+}
+
 void SectionClass::show() const
 {
   for (int i = 0; i < this->listStudents->getSize(); i++)

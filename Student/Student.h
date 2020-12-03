@@ -39,8 +39,13 @@ public:
 
   friend ostream& operator << (ostream& o, const Student& student);
   friend ostream& operator << (ostream& o, const Student* student);
+
   bool operator == (const Student&) const;
-  
+  bool operator > (const Student&) const;
+  bool operator >= (const Student&) const;
+  bool operator < (const Student&) const;
+  bool operator <= (const Student&) const;
+
 private:   
   // quan hệ 1-n với SectionClass
   void setSectionClass(SectionClass*);

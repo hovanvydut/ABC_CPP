@@ -17,8 +17,11 @@ public:
   ~NormalStudent();
 
   // getter, setter
-  string getParkingCode();
+  string getParkingCode() const;
   void setParkingCode(string&);
+
+  // override method
+  void show() const;
 
   friend ostream& operator << (ostream& o, const NormalStudent& student);
   friend ostream& operator << (ostream& o, const NormalStudent* student);

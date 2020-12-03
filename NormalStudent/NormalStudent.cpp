@@ -23,7 +23,7 @@ NormalStudent::~NormalStudent()
 }
 
 // getter, setter
-string NormalStudent::getParkingCode()
+string NormalStudent::getParkingCode() const
 {
   return this->parkingCode;
 }
@@ -43,4 +43,10 @@ ostream& operator << (ostream& o, const NormalStudent* student)
 {
   student->show();
   return o;
+}
+
+void NormalStudent::show() const
+{
+  Student::show();
+  std::cout << "	parkingCode: " << this->getParkingCode() << "\n";
 }
