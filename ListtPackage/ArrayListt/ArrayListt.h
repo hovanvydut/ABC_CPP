@@ -38,6 +38,18 @@ public:
     void show();
     template <class T> friend std::ostream &operator<<(std::ostream &, ArrayListt<T> &);
     template <class T> friend std::ostream &operator<<(std::ostream &, ArrayListt<T> *);
+
+    template <typename T>
+    struct isPointer 
+    {
+      static const bool value = false;
+    };
+
+    template <typename T>
+    struct isPointer<T*> 
+    {
+      static const bool value = true;
+    };
 };
 
 #endif // ARRAYLISTT_H

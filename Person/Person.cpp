@@ -68,11 +68,15 @@ void Person::setGender(const bool &gender)
 
 void Person::show() const
 {
-  std::cout << "Person: \n";
   std::cout << "	name: " << this->getName() << "\n";
   std::cout << "	age: " << this->getAge() << "\n";
   std::cout << "	address: " << this->getAddress() << "\n";
   std::cout << "	gender: " << this->getGender() << "\n";
+}
+
+string Person::getClassName() const
+{
+  return "Person";
 }
 
 string Person::removeSpaceAndValidateString(string str)
@@ -114,11 +118,13 @@ string Person::removeSpaceAndValidateString(string str)
 // 
 ostream& operator << (ostream& o, const Person& person)
 {
+  o << person.getClassName() << "\n";
   person.show();
   return o;
 }
 ostream& operator << (ostream& o, const Person* person)
 {
+  o << person->getClassName() << "\n";
   person->show();
   return o;
 }

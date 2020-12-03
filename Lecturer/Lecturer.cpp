@@ -58,6 +58,11 @@ void Lecturer::show() const
   std::cout << "	cap bac: " << this->getLevel() << "\n";
 }
 
+string Lecturer::getClassName() const
+{
+  return "Lecturer";
+}
+
 string Lecturer::createLecturerCodeFromName(string str)
 {
   string arr[100];
@@ -97,12 +102,14 @@ string Lecturer::createLecturerCodeFromName(string str)
 
 ostream& operator << (ostream& o, const Lecturer& lecturer)
 {
+  o << lecturer.getClassName() << "\n";
   lecturer.show();
   return o;
 }
 
 ostream& operator << (ostream& o, const Lecturer* lecturer)
 {
+  o << lecturer->getClassName() << "\n";
   lecturer->show();
   return o;
 }

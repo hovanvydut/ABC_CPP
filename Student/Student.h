@@ -33,6 +33,7 @@ public:
 
   // override method
   void show() const;
+  string getClassName() const;
 
   // không dùng hàm bạn được (do circular dependency, fix bằng forward declaration) nên dùng lớp bạn 
   friend class SectionClass;

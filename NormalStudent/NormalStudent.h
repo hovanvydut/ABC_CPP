@@ -22,6 +22,7 @@ public:
 
   // override method
   void show() const;
+  string getClassName() const;
 
   friend ostream& operator << (ostream& o, const NormalStudent& student);
   friend ostream& operator << (ostream& o, const NormalStudent* student);

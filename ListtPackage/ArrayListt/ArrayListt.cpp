@@ -254,12 +254,20 @@ void ArrayListt<E>::sort(bool (*compare)(const E, const E))
 template <class E>
 bool ArrayListt<E>::compareASC(const E a, const E b)
 {
+    if (isPointer<E>::value)
+    {
+      return *a > *b;
+    }
     return a > b;
 }
 
 template <class E>
 bool ArrayListt<E>::compareDESC(const E a, const E b)
 {
+    if (isPointer<E>::value)
+    {
+      return *b > *a;
+    }
     return b > a;
 }
 

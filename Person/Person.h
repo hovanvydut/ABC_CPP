@@ -34,6 +34,7 @@ public:
   virtual void setGender(const bool &);
 
   virtual void show() const;
+  virtual string getClassName() const;
   virtual string removeSpaceAndValidateString(string str);
 
   friend ostream& operator << (ostream& o, const Person& person);

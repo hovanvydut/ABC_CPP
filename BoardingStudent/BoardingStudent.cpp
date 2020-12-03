@@ -38,14 +38,21 @@ void BoardingStudent::show() const
   std::cout << "	roomCode: " << this->getRoomCode() << "\n";
 }
 
+string BoardingStudent::getClassName() const
+{
+  return "BoardingStudent";
+}
+
 ostream& operator << (ostream& o, const BoardingStudent& student)
 {
+  o << student.getClassName() << "\n";
   student.show();
   return o;
 }
 
 ostream& operator << (ostream& o, const BoardingStudent* student)
 {
+  o << student->getClassName() << "\n";
   student->show();
   return o;
 }

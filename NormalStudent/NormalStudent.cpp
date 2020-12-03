@@ -35,12 +35,14 @@ void NormalStudent::setParkingCode(string& parkingCode)
 
 ostream& operator << (ostream& o, const NormalStudent& student)
 {
+  o << student.getClassName() << "\n";
   student.show();
   return o;
 }
 
 ostream& operator << (ostream& o, const NormalStudent* student)
 {
+  o << student->getClassName() << "\n";
   student->show();
   return o;
 }
@@ -49,4 +51,9 @@ void NormalStudent::show() const
 {
   Student::show();
   std::cout << "	parkingCode: " << this->getParkingCode() << "\n";
+}
+
+string NormalStudent::getClassName() const
+{
+  return "NormalStudent";
 }

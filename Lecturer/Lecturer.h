@@ -26,6 +26,7 @@ public:
   void setLevel(const string &);
 
   void show() const;
+  string getClassName() const;
 
   friend ostream& operator << (ostream& o, const Lecturer& lecturer);
   friend ostream& operator << (ostream& o, const Lecturer* lecturer);

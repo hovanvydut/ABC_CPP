@@ -80,6 +80,11 @@ void Student::show() const
   std::cout << "	GPA: " << this->getGPA() << "\n";
 }
 
+string Student::getClassName() const
+{
+  return "Student";
+}
+
 SectionClass Student::getSectionClass() const
 {
   return *(this->sectionClass);
@@ -92,12 +97,14 @@ void Student::setSectionClass(SectionClass* sectionClass)
 
 ostream& operator << (ostream& o, const Student& student)
 {
+  o << student.getClassName() << "\n";
   student.show();
   return o;
 }
 
 ostream& operator << (ostream& o, const Student* student)
 {
+  o << student->getClassName() << "\n";
   student->show();
   return o;
 }

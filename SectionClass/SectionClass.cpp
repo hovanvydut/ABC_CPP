@@ -13,7 +13,7 @@ SectionClass::SectionClass(const string &name, Lecturer *lecturer)
   this->setName(name);
   this->setLecturer(lecturer);
   // this->setNumberOfStudents(0);
-  this->listStudents = new LinkedListt<Student*>();
+  this->listStudents = new ArrayListt<Student*>();
 }
 
 // SectionClass::SectionClass(SectionClass &anotherSectionClass)
