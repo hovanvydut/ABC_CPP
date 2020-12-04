@@ -19,6 +19,7 @@ int main()
   Lecturer lecturerOOP("Dang Hoai Phuong", 40, "Unknown", false, "Expert");
 
   SectionClass *toangCLC = SectionClass::getInstance();
+
   toangCLC->setLecturer(&lecturerOOP);
   toangCLC->setName("19TCLC_DT4");
 
@@ -38,7 +39,7 @@ int main()
   {
     cout << "Removed" << endl;
   }
-  toangCLC->sortGPAStudentASC();
+  toangCLC->sortGPAStudentDESC();
   cout << toangCLC << endl;
 
   cout << "------------------\n";

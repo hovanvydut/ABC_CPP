@@ -19,8 +19,7 @@ private:
   // int numberOfStudents;
 
   static SectionClass* _instance;
-  SectionClass();
-  SectionClass(const string&, Lecturer*);
+  SectionClass(const string = "No Name", Lecturer*  = nullptr);
 
 public:
   // Singleton Pattern
@@ -30,15 +29,15 @@ public:
 
   // setter, getter
   string getName() const;
-  void setName(const string&);
+  void setName(const string);
   Lecturer* getLecturer() const;
   void setLecturer(Lecturer*);
   int getNumberOfStudents() const;
 
   // management method
   bool addStudent(Student*);
-  bool removeStudent(const string&);
-  Student* findStudentById(const string&);
+  bool removeStudent(const string);
+  Student* findStudentById(const string);
   void sortGPAStudentDESC();
   void sortGPAStudentASC();
   Student* operator [] (int);

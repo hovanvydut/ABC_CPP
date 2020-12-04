@@ -3,12 +3,7 @@
 
 SectionClass* SectionClass::_instance = nullptr;
 
-SectionClass::SectionClass()
-{
-  this->listStudents = new ArrayListt<Student*>();
-}
-
-SectionClass::SectionClass(const string &name, Lecturer *lecturer)
+SectionClass::SectionClass(const string name, Lecturer *lecturer)
 {
   this->setName(name);
   this->setLecturer(lecturer);
@@ -43,7 +38,7 @@ string SectionClass::getName() const
 }
 
 // NOTE: validate, remove space name
-void SectionClass::setName(const string &name)
+void SectionClass::setName(const string name)
 {
   if (name.length() <= 0)
   {
@@ -73,7 +68,7 @@ bool SectionClass::addStudent(Student *student)
   return this->listStudents->add(student);
 }
 
-bool SectionClass::removeStudent(const string &studentId)
+bool SectionClass::removeStudent(const string studentId)
 {
   for (int i = 0; i < this->listStudents->getSize(); i++)
   {
@@ -86,7 +81,7 @@ bool SectionClass::removeStudent(const string &studentId)
   return false;
 }
 
-Student* SectionClass::findStudentById(const string& studentId)
+Student* SectionClass::findStudentById(const string studentId)
 {
   for (int i = 0; i < this->listStudents->getSize(); i++)
   {
@@ -140,3 +135,4 @@ ostream& operator << (ostream& o, const SectionClass* sectionClass)
   sectionClass->show();
   return o;
 }
+

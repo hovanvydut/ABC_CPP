@@ -4,4 +4,4 @@ add private setter quan he N-N giua SectionClass va Student
 add copy constructor o sectionClass va Listt, ArrayListt
 Su dung ke thua class B : virtual A; class C : B, virtual A để tránh bị duplicate code
 
-Da nang hoa toan tu nhap
+Da nang hoa toan tu nhap (dang bi loi)

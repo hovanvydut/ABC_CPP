@@ -70,6 +70,7 @@ void Student::setGPA(const double &GPA)
   {
     throw "Over rangge [0, 4]";
   }
+
   this->GPA = GPA;
 }
 
