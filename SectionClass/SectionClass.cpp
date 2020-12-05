@@ -68,7 +68,7 @@ bool SectionClass::addStudent(Student *student)
   return this->listStudents->add(student);
 }
 
-bool SectionClass::removeStudent(const string studentId)
+bool SectionClass::removeStudentById(const string studentId)
 {
   for (int i = 0; i < this->listStudents->getSize(); i++)
   {
@@ -81,7 +81,7 @@ bool SectionClass::removeStudent(const string studentId)
   return false;
 }
 
-Student* SectionClass::findStudentById(const string studentId)
+const Student* SectionClass::findStudentById(const string studentId)
 {
   for (int i = 0; i < this->listStudents->getSize(); i++)
   {
@@ -130,9 +130,24 @@ ostream& operator << (ostream& o, const SectionClass& sectionClass)
 ostream& operator << (ostream& o, const SectionClass* sectionClass)
 {
   cout << "Lop: " << sectionClass->getName() << endl;
-  cout << sectionClass->getLecturer() << endl;
+  if (sectionClass ->getLecturer() != nullptr)
+  {
+    cout << sectionClass->getLecturer() << endl;
+  }
+  else
+  {
+    cout << "Chua co thong tin giao vien chu nhiem!" << endl;
+  }
   cout << "Bao gom " << sectionClass->getNumberOfStudents() << " hoc sinh" << endl;
   sectionClass->show();
   return o;
+}
+
+istream& operator >> (istream& in, SectionClass* sectionClass)
+{
+  string name;
+  cout << "*** Vui long nhap: \n";
+  cout << "* Ten lop: "; in >> sectionClass->name;
+  return in;
 }
 

@@ -30,6 +30,8 @@ public:
 
   friend ostream& operator << (ostream& o, const Lecturer& lecturer);
   friend ostream& operator << (ostream& o, const Lecturer* lecturer);
+  friend istream& operator >> (istream& in, Lecturer& lecturer);
+  friend istream& operator >> (istream& in, Lecturer* lecturer);
 
 private:
   void setMaLecture();

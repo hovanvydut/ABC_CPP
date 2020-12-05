@@ -36,13 +36,14 @@ public:
 
   // management method
   bool addStudent(Student*);
-  bool removeStudent(const string);
-  Student* findStudentById(const string);
+  bool removeStudentById(const string);
+  const Student* findStudentById(const string);
   void sortGPAStudentDESC();
   void sortGPAStudentASC();
   Student* operator [] (int);
   friend ostream& operator << (ostream&, const SectionClass&);
   friend ostream& operator << (ostream&, const SectionClass*);
+  friend istream& operator >> (istream&, SectionClass*);
   // void removeStudent(Student*);
 
   // override method

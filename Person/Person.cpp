@@ -38,9 +38,9 @@ int Person::getAge() const
 
 void Person::setAge(const int &age)
 {
-  if (age < 0 && age < 200)
+  if (age < 0 || age > 200)
   {
-    throw "Error: age phai lon hon 0";
+    throw "Error: age phai >= 0 va < 200";
   }
 
   this->age = age;
@@ -71,7 +71,10 @@ void Person::show() const
   std::cout << "	name: " << this->getName() << "\n";
   std::cout << "	age: " << this->getAge() << "\n";
   std::cout << "	address: " << this->getAddress() << "\n";
-  std::cout << "	gender: " << this->getGender() << "\n";
+  if (this->getGender())
+    std::cout << "	gender: nam" << "\n";
+  else
+    std::cout << "	gender: nu" << "\n";
 }
 
 string Person::getClassName() const

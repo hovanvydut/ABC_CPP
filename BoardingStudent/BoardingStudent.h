@@ -27,6 +27,8 @@ public:
 
   friend ostream& operator << (ostream& o, const BoardingStudent& student);
   friend ostream& operator << (ostream& o, const BoardingStudent* student);
+  friend istream& operator >> (istream& in, BoardingStudent& student);
+  friend istream& operator >> (istream& in, BoardingStudent* student);
 };
 
 #endif

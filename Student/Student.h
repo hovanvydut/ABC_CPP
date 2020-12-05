@@ -40,6 +40,8 @@ public:
 
   friend ostream& operator << (ostream& o, const Student& student);
   friend ostream& operator << (ostream& o, const Student* student);
+  friend istream& operator >> (istream& in, Student& student);
+  friend istream& operator >> (istream& in, Student* student);
 
   bool operator == (const Student&) const;
   bool operator > (const Student&) const;

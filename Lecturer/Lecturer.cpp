@@ -25,7 +25,7 @@ Lecturer::~Lecturer()
 // override
 void Lecturer::setName(const string &name)
 {
-  this->name = name;
+  this->name = Person::removeSpaceAndValidateString(name);
   this->setMaLecture();
 }
 
@@ -94,7 +94,10 @@ string Lecturer::createLecturerCodeFromName(string str)
   ;
   for (int i = 1; i < arr[idx - 1].length(); i++)
   {
-    result += arr[idx - 1][i];
+    if (arr[idx - 1][i] <= 90)
+      result += (arr[idx - 1][i] + 32);
+    else
+      result += arr[idx-1][i];
   }
 
   return result;
@@ -112,4 +115,93 @@ ostream& operator << (ostream& o, const Lecturer* lecturer)
   o << lecturer->getClassName() << "\n";
   lecturer->show();
   return o;
+}
+
+istream& operator >> (istream& in, Lecturer& lecturer)
+{
+  string name, address, level;
+  int age;
+  int gender;
+  cout << "*** Vui long nhap: \n";
+
+  in.ignore();
+  cout << "* Ten: "; getline(in, name);
+  lecturer.setName(name);
+
+  INPUT_AGE:
+  cout << "* Tuoi: "; in >> age;
+  try {
+    lecturer.setAge(age);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_AGE;
+  }
+
+  in.ignore();
+  cout << "* Dia chi: "; getline(in, address);
+  lecturer.setAddress(address);
+
+  INPUT_GENDER:
+  cout << "* Gioi tinh(0: nu, 1: nam): "; in >> gender;
+  if (gender == 1)
+    lecturer.setGender(true);
+  else if (gender == 0)
+    lecturer.setGender(false);
+  else
+  {
+    cout << "Error: Nhap 0 hoac 1 \n";
+    goto INPUT_GENDER;
+  }
+
+  in.ignore();
+  cout << "* Cap bac: "; getline(in, level);
+  lecturer.setLevel(level);
+  
+  return in;
+}
+
+// (string name, int age, string address, bool gender, string level)
+istream& operator >> (istream& in, Lecturer* lecturer)
+{
+  string name, address, level;
+  int age;
+  int gender;
+  cout << "*** Vui long nhap: \n";
+
+  in.ignore();
+  cout << "* Ten: "; getline(in, name);
+  lecturer->setName(name);
+
+  INPUT_AGE:
+  cout << "* Tuoi: "; in >> age;
+  try {
+    lecturer->setAge(age);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_AGE;
+  }
+
+  in.ignore();
+  cout << "* Dia chi: "; getline(in, address);
+  lecturer->setAddress(address);
+
+  INPUT_GENDER:
+  cout << "* Gioi tinh(0: nu, 1: nam): "; in >> gender;
+  if (gender == 1)
+    lecturer->setGender(true);
+  else if (gender == 0)
+    lecturer->setGender(false);
+  else
+  {
+    cout << "Error: Nhap 0 hoac 1 \n";
+    goto INPUT_GENDER;
+  }
+
+  in.ignore();
+  cout << "* Cap bac: "; getline(in, level);
+  lecturer->setLevel(level);
+  
+  return in;
 }

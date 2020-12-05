@@ -137,3 +137,133 @@ bool Student::operator <= (const Student& anotherStudent) const
   return this->getGPA() <= anotherStudent.getGPA();
 }
 
+// string name, int age, string address, bool gender, string studentId, double GPA
+
+istream& operator >> (istream& in, Student& student)
+{
+string name, address, studentId;
+  int age, gender;
+  double GPA;
+
+  cout << "*** Vui long nhap: \n";
+
+  in.ignore();
+  cout << "* Ten: "; getline(in, name);
+  student.setName(name);
+
+  INPUT_AGE:
+  cout << "* Tuoi: "; in >> age;
+  try {
+    student.setAge(age);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_AGE;
+  }
+
+  in.ignore();
+  cout << "* Dia chi: "; getline(in, address);
+  student.setAddress(address);
+
+  INPUT_GENDER:
+  cout << "* Gioi tinh(0: nu, 1: nam): "; in >> gender;
+  if (gender == 1)
+    student.setGender(true);
+  else if (gender == 0)
+    student.setGender(false);
+  else
+  {
+    cout << "Error: Nhap 0 hoac 1 \n";
+    goto INPUT_GENDER;
+  }
+
+  INPUT_STUDENT_CODE:
+  cout << "* Ma sinh vien (gom 10 ki tu, khong duoc bat dau bang ki tu 0): " << endl;
+  try
+  {
+    in.ignore();
+    getline(in, studentId);
+    student.setStudentId(studentId);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_STUDENT_CODE;
+  }
+  
+  INPUT_GPA:
+  try {
+    in >> GPA;
+    student.setGPA(GPA);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_GPA;
+  }
+
+  return in;
+}
+
+istream& operator >> (istream& in, Student* student)
+{
+  string name, address, studentId;
+  int age, gender;
+  double GPA;
+
+  cout << "*** Vui long nhap: \n";
+
+  in.ignore();
+  cout << "* Ten: "; getline(in, name);
+  student->setName(name);
+
+  INPUT_AGE:
+  cout << "* Tuoi: "; in >> age;
+  try {
+    student->setAge(age);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_AGE;
+  }
+
+  in.ignore();
+  cout << "* Dia chi: "; getline(in, address);
+  student->setAddress(address);
+
+  INPUT_GENDER:
+  cout << "* Gioi tinh(0: nu, 1: nam): "; in >> gender;
+  if (gender == 1)
+    student->setGender(true);
+  else if (gender == 0)
+    student->setGender(false);
+  else
+  {
+    cout << "Error: Nhap 0 hoac 1 \n";
+    goto INPUT_GENDER;
+  }
+
+  INPUT_STUDENT_CODE:
+  cout << "* Ma sinh vien (gom 10 ki tu, khong duoc bat dau bang ki tu 0): ";
+  try
+  {
+    in.ignore();
+    getline(in, studentId);
+    student->setStudentId(studentId);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_STUDENT_CODE;
+  }
+  
+  INPUT_GPA:
+  try {
+    cout << "* GPA: ";
+    in >> GPA;
+    student->setGPA(GPA);
+  } catch (const char* msg)
+  {
+    cout << msg << endl;
+    goto INPUT_GPA;
+  }
+
+  return in;
+}
